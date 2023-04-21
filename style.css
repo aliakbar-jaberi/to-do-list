@@ -1,0 +1,105 @@
+@import url("./assets/styles/fonts.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "iranyekan";
+  list-style: none;
+}
+
+:root {
+  --primaryColor: #6d28d9;
+  --secondaryColor: #ede9fe;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #7c7c7c;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --mainRed: #db2777;
+  --bodyColor: #f6f6f6;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--mainBlack);
+  
+}
+.title{
+  margin-top: 2rem;
+}
+
+.form-container{
+  display: flex;
+  margin-top: 5rem;
+  align-items: center;
+
+}
+form{
+  border: 1px solid  var(--primaryColor) ;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 20px;
+}
+
+form input{
+  width: 20rem;
+  height: 2rem;
+  border: none;
+}
+
+form button{
+  border: none;
+  font-size: 15px;
+  color: var(--primaryColor);
+}
+
+.filter-todos{
+height: 2rem;
+border: 1px solid var(--primaryColor);
+border-radius:10px ;
+color: var(--mainBlack);
+}
+
+.todo-container{
+  margin-top: 2rem;
+}
+
+
+.todo{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 8px;
+  padding: 0.5rem;
+  justify-content: space-between;
+  
+}
+
+.todo span{
+  margin-right: 10px;
+}
+
+.todo .todo-item{
+  width: 20rem;
+}
+
+.todo i{
+  color: var(--mainGrey);
+}
+
+.todo .fa-trash-alt:hover{
+  color: var(--mainRed);
+}
+
+.todo .fa-edit:hover{
+  color: var(--primaryColor);
+}
+
+.todo .fa-check-square:hover{
+color: aquamarine;
+}
+
