@@ -86,6 +86,7 @@ padding: 5px;
 .filter-todos{
   border: none;
   margin-left: 10px;
+  outline: none;
 }
 
 .todo-container{
@@ -126,10 +127,6 @@ padding: 5px;
 
 
 
-.todo .todo-item{
-  width: 20rem;
-}
-
 .todo i{
   color: var(--mainGrey);
 }
@@ -137,12 +134,15 @@ padding: 5px;
 .todo .todo__remove:hover{
   color: var(--mainRed);
 }
-
-.todo .fa-edit:hover{
-  color: var(--primaryColor);
-}
-
 .todo .todo__check:hover{
 color: rgb(98, 216, 177);
+}
+
+.form--error{
+  color: var(--mainRed);
+  font-size: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  display: none;
 }
 

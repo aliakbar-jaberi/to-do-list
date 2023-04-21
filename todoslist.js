@@ -6,7 +6,7 @@ const todos = [];
 const todoInput = document.querySelector(".todo-input");
 const todoForm = document.querySelector(".todo-form");
 const todoList = document.querySelector(".todolist");
-
+const formError = document.querySelector(".form--error");
 // Events
 todoForm.addEventListener("submit", addNewTodo);
 
@@ -15,6 +15,14 @@ todoForm.addEventListener("submit", addNewTodo);
 function addNewTodo(e) {
   e.preventDefault();
 
+  if (!todoInput.value) {
+    formError.style.display = "block";
+    todoForm.style.border = "2px solid var(--mainRed)";
+    return;
+  }
+
+  formError.style.display = "none";
+  todoForm.style.border = "1px solid var(--primaryColor)";
   const newTodo = {
     id: Date.now(),
     createdAt: new Date().toISOString(),
