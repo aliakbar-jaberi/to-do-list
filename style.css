@@ -126,11 +126,6 @@ padding: 5px;
 }
 
 
-
-.todo i{
-  color: var(--mainGrey);
-}
-
 .todo .todo__remove:hover{
   color: var(--mainRed);
 }
