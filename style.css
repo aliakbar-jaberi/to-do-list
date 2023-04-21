@@ -40,28 +40,52 @@ body{
 form{
   border: 1px solid  var(--primaryColor) ;
   border-radius: 10px;
-  padding: 5px;
-  margin-right: 20px;
+ overflow: hidden;
+  margin-left: 20px;
 }
 
 form input{
   width: 20rem;
   height: 2rem;
   border: none;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
 }
-
-form button{
-  border: none;
+button{
+border: none;
   font-size: 15px;
   color: var(--primaryColor);
   background-color: rgba(0, 0, 0, 0);
 }
+form button{
+ 
+  height: 100%;
+}
 
-.filter-todos{
+form button i{
+  margin: 10px;
+}
+
+form button:hover{
+  background-color: var(--primaryColor);
+  color:var(--bodyColor);
+}
+
+
+
+
+.select{
 height: 2rem;
 border: 1px solid var(--primaryColor);
 border-radius:10px ;
 color: var(--mainBlack);
+overflow: hidden;
+padding: 5px;
+}
+.filter-todos{
+  border: none;
+  margin-left: 10px;
 }
 
 .todo-container{
@@ -84,6 +108,24 @@ color: var(--mainBlack);
   margin-right: 10px;
 }
 
+.todo__title,.todo__createdAt,.todo__button{
+  width: 30%;
+}
+
+.todo__createdAt{
+  margin-left: 40px;
+}
+
+.todo__button{
+  display: flex;
+  justify-content: flex-end;
+}
+.todo__button button{
+  margin-left: 10px;
+}
+
+
+
 .todo .todo-item{
   width: 20rem;
 }
@@ -92,7 +134,7 @@ color: var(--mainBlack);
   color: var(--mainGrey);
 }
 
-.todo .fa-trash-alt:hover{
+.todo .todo__remove:hover{
   color: var(--mainRed);
 }
 
@@ -100,7 +142,7 @@ color: var(--mainBlack);
   color: var(--primaryColor);
 }
 
-.todo .fa-check-square:hover{
-color: aquamarine;
+.todo .todo__check:hover{
+color: rgb(98, 216, 177);
 }
 
