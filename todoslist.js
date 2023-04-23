@@ -1,5 +1,5 @@
 // Variables
-const todos = [];
+let todos = [];
 
 // sekecting
 
@@ -45,17 +45,21 @@ function createTodos(todos) {
               todo.createdAt
             ).toLocaleDateString("fa-IR")}</span>
             <div>
-              <button data-todo-id=${
+              <button class="todo__check" data-todo-id=${
                 todo.id
-              }><i class="todo__check fa-solid fa-circle-check"></i> </button>
-              <button data-todo-id=${
+              }><i class=" fa-solid fa-circle-check"></i> </button>
+              <button class="todo__remove" data-todo-id=${
                 todo.id
-              }><i class="todo__remove fa-solid fa-trash"></i> </button>
+              }><i class=" fa-solid fa-trash"></i> </button>
             </div>
           </li>`;
   });
   todoList.innerHTML = result;
   todoInput.value = "";
+
+  const removeBtn = [... document.querySelectorAll(".todo__remove")];
+  removeBtn.forEach((btn) => btn.addEventListener("click", removeTodo));
+  
 }
 
 function filterTodos(e) {
@@ -75,8 +79,14 @@ function filterTodos(e) {
       createTodos(filteredTodos);
       break;
     }
-    default:{
-      createTodos(todos)
+    default: {
+      createTodos(todos);
     }
   }
+}
+
+function removeTodo(e) {
+  const todoId = Number(e.target.dataset.todoId);
+  todos = todos.filter((t) => t.id !== todoId);
+  createTodos(todos);
 }
