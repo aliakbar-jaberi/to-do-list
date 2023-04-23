@@ -141,3 +141,6 @@ color: rgb(98, 216, 177);
   display: none;
 }
 
+button >i{
+  pointer-events: none;
+}
