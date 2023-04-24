@@ -33,6 +33,8 @@ messageBack.addEventListener("click", close);
 function addNewTodo(e) {
   e.preventDefault();
 
+  close();
+
   if (!todoInput.value) {
     formError.style.display = "block";
     todoForm.style.border = "2px solid var(--mainRed)";
@@ -153,11 +155,9 @@ function editTodo(e) {
     filterTodos();
     close();
   });
-  
-
 }
 
-console.log(inputEdit.value)
+console.log(inputEdit.value);
 
 function close() {
   message.style.transform = "rotateY(90deg)";
