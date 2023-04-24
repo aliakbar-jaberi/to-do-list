@@ -36,7 +36,7 @@ function addNewTodo(e) {
 
   todos.push(newTodo);
 
-  createTodos(todos);
+  filterTodos()
 }
 
 function createTodos(todos) {
