@@ -21,6 +21,7 @@
 }
 
 body{
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,3 +155,45 @@ button >i{
 color: rgb(98, 216, 177);
 }
 
+.Message{
+
+}
+
+.Message .Message__container {
+  position: absolute;
+  top: 40%;
+    left: 43%;
+  width: 250px;
+  height: 120px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+  transform: rotateY(90deg);
+}
+
+.Message .Message__container span{
+  color: rgb(98, 216, 177);
+  font-size: 40px;
+  margin-top: 10px;
+
+}
+
+.back {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(252, 246, 246, 0.648);
+  display: none;
+  transition: all 0.5s;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  
+}

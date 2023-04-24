@@ -8,6 +8,8 @@ const todoForm = document.querySelector(".todo-form");
 const todoList = document.querySelector(".todolist");
 const formError = document.querySelector(".form--error");
 const selectfFilter = document.querySelector(".filter-todos");
+const message = document.querySelector(".Message__container");
+const messageBack = document.querySelector(".back");
 
 // Events
 todoForm.addEventListener("submit", addNewTodo);
@@ -18,6 +20,12 @@ selectfFilter.addEventListener("change", (e) => {
 document.addEventListener("DOMContentLoaded", (e) => {
   const todos = getAllTodos();
   createTodos(todos);
+});
+
+messageBack.addEventListener("click", (e) => {
+  message.style.transform = "rotateY(-90deg)";
+  messageBack.style.display = "none";
+  messageBack.style.opacity = "0";
 });
 
 // functions
@@ -44,6 +52,7 @@ function addNewTodo(e) {
   saveTodo(newTodo);
 
   filterTodos();
+  messages();
 }
 
 function createTodos(todos) {
@@ -105,7 +114,7 @@ function removeTodo(e) {
   let todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
   todos = todos.filter((t) => t.id !== todoId);
-  saveAllTodo(todos)
+  saveAllTodo(todos);
   filterTodos();
 }
 
@@ -116,6 +125,12 @@ function checkTodo(e) {
   todo.isCompleted = !todo.isCompleted;
   saveAllTodo(todos);
   filterTodos();
+}
+
+function messages() {
+  message.style.transform = "rotateY(0deg)";
+  messageBack.style.display = "block";
+  messageBack.style.opacity = "1";
 }
 
 // localStorage
