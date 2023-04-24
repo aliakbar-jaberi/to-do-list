@@ -1,5 +1,5 @@
 // Variables
-let todos = [];
+
 let filterVslue = "all";
 // sekecting
 
@@ -8,12 +8,18 @@ const todoForm = document.querySelector(".todo-form");
 const todoList = document.querySelector(".todolist");
 const formError = document.querySelector(".form--error");
 const selectfFilter = document.querySelector(".filter-todos");
+
 // Events
 todoForm.addEventListener("submit", addNewTodo);
 selectfFilter.addEventListener("change", (e) => {
   filterVslue = e.target.value;
-  filterTodos()
+  filterTodos();
 });
+document.addEventListener("DOMContentLoaded", (e) => {
+  const todos = getAllTodos();
+  createTodos(todos);
+});
+
 // functions
 
 function addNewTodo(e) {
@@ -34,9 +40,10 @@ function addNewTodo(e) {
     isCompleted: false,
   };
 
-  todos.push(newTodo);
+  // todos.push(newTodo);
+  saveTodo(newTodo);
 
-  filterTodos()
+  filterTodos();
 }
 
 function createTodos(todos) {
@@ -72,6 +79,7 @@ function createTodos(todos) {
 
 function filterTodos(e) {
   // const filter = e.target.value;
+  const todos = getAllTodos();
   switch (filterVslue) {
     case "all": {
       createTodos(todos);
@@ -94,14 +102,36 @@ function filterTodos(e) {
 }
 
 function removeTodo(e) {
+  let todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
   todos = todos.filter((t) => t.id !== todoId);
-  filterTodos()
+  saveAllTodo(todos)
+  filterTodos();
 }
 
 function checkTodo(e) {
+  let todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
   const todo = todos.find((t) => t.id === todoId);
   todo.isCompleted = !todo.isCompleted;
+  saveAllTodo(todos);
   filterTodos();
+}
+
+// localStorage
+
+function getAllTodos() {
+  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  return savedTodos;
+}
+
+function saveTodo(todo) {
+  const savedTodos = getAllTodos();
+  savedTodos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(savedTodos));
+  return savedTodos;
+}
+
+function saveAllTodo(todos) {
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
