@@ -36,14 +36,15 @@
       <div class="todo-container">
         <li class=" todo title__list"><span>عنوان</span><span>تاریخ ایجاد</span><span>سررسید </span></li>
         <ul class="todolist">
-          <!-- <li class="todo">
+          <li class="todo">
             <p class="todo__title">کار 1</p>
             <span class="todo__createdAt">1402/10/02</span>
             <div class="todo__button">
-              <button><i class="todo__check fa-solid fa-circle-check"></i> </button>
-              <button>  <i class="todo__remove fa-solid fa-trash"></i> </button>
+              <button class="todo__check "><i class=" fa-solid fa-circle-check"></i> </button>
+              <button class="todo__remove">  <i class= fa-solid fa-trash"></i> </button>
+              <button class="todo__edit"><i class="fa-solid fa-file-pen"></i></button>
             </div>
-          </li> -->
+          </li>
         </ul>
     </section>
     <div class="Message" >
@@ -54,6 +55,14 @@
           <i class="fa-regular fa-circle-check"></i>
         </span>
       </div>
+    </div>
+    <div class="form__edit">
+      <form action="" >
+    <input type="text" class="edit-input" placeholder=" عنوان جدید"  data-todo-id="" />
+    <button type="submit" class="todo-button">
+              <i class="fa-solid fa-file-pen"></i>
+    </button>
+  </form>
     </div>
     <script src="todoslist.js"></script>
   </body>

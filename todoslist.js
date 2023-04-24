@@ -10,6 +10,10 @@ const formError = document.querySelector(".form--error");
 const selectfFilter = document.querySelector(".filter-todos");
 const message = document.querySelector(".Message__container");
 const messageBack = document.querySelector(".back");
+const formEdit = document.querySelector(".form__edit");
+const inputEdit = document.querySelector(".form__edit input");
+const formeEdit = document.querySelector(".form__edit form");
+// const formBack = document.querySelector(".form__back");
 
 // Events
 todoForm.addEventListener("submit", addNewTodo);
@@ -22,11 +26,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   createTodos(todos);
 });
 
-messageBack.addEventListener("click", (e) => {
-  message.style.transform = "rotateY(-90deg)";
-  messageBack.style.display = "none";
-  messageBack.style.opacity = "0";
-});
+messageBack.addEventListener("click", close);
 
 // functions
 
@@ -74,6 +74,9 @@ function createTodos(todos) {
               <button class="todo__remove" data-todo-id=${
                 todo.id
               }><i class=" fa-solid fa-trash"></i> </button>
+              <button class="todo__edit" data-todo-id=${
+                todo.id
+              } ><i class="fa-solid fa-file-pen"></i></button>
             </div>
           </li>`;
   });
@@ -84,6 +87,8 @@ function createTodos(todos) {
   removeBtn.forEach((btn) => btn.addEventListener("click", removeTodo));
   const checkBtn = [...document.querySelectorAll(".todo__check")];
   checkBtn.forEach((btn) => btn.addEventListener("click", checkTodo));
+  const buttonEdit = [...document.querySelectorAll(".todo__edit")];
+  buttonEdit.forEach((btn) => btn.addEventListener("click", editTodo));
 }
 
 function filterTodos(e) {
@@ -131,6 +136,34 @@ function messages() {
   message.style.transform = "rotateY(0deg)";
   messageBack.style.display = "block";
   messageBack.style.opacity = "1";
+}
+
+function editTodo(e) {
+  let todos = getAllTodos();
+  const todoId = Number(e.target.dataset.todoId);
+  const todo = todos.find((t) => t.id === todoId);
+  inputEdit.value = todo.title;
+  formEdit.style.transform = "rotateY(0deg)";
+  messageBack.style.display = "block";
+  messageBack.style.opacity = "1";
+  formeEdit.addEventListener("submit", (e) => {
+    e.preventDefault();
+    todo.title = inputEdit.value;
+    saveAllTodo(todos);
+    filterTodos();
+    close();
+  });
+  
+
+}
+
+console.log(inputEdit.value)
+
+function close() {
+  message.style.transform = "rotateY(90deg)";
+  messageBack.style.display = "none";
+  messageBack.style.opacity = "0";
+  formEdit.style.transform = "rotateY(90deg)";
 }
 
 // localStorage
