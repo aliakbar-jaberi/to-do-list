@@ -1,6 +1,6 @@
 // Variables
 let todos = [];
-
+let filterVslue = "all";
 // sekecting
 
 const todoInput = document.querySelector(".todo-input");
@@ -10,7 +10,10 @@ const formError = document.querySelector(".form--error");
 const selectfFilter = document.querySelector(".filter-todos");
 // Events
 todoForm.addEventListener("submit", addNewTodo);
-selectfFilter.addEventListener("change", filterTodos);
+selectfFilter.addEventListener("change", (e) => {
+  filterVslue = e.target.value;
+  filterTodos()
+});
 // functions
 
 function addNewTodo(e) {
@@ -68,8 +71,8 @@ function createTodos(todos) {
 }
 
 function filterTodos(e) {
-  const filter = e.target.value;
-  switch (filter) {
+  // const filter = e.target.value;
+  switch (filterVslue) {
     case "all": {
       createTodos(todos);
       break;
@@ -93,13 +96,12 @@ function filterTodos(e) {
 function removeTodo(e) {
   const todoId = Number(e.target.dataset.todoId);
   todos = todos.filter((t) => t.id !== todoId);
-  createTodos(todos);
+  filterTodos()
 }
 
 function checkTodo(e) {
   const todoId = Number(e.target.dataset.todoId);
   const todo = todos.find((t) => t.id === todoId);
   todo.isCompleted = !todo.isCompleted;
-  createTodos(todos);
-
+  filterTodos();
 }
