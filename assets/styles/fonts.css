@@ -120,3 +120,8 @@
       url("../fonts/iranyekan/ttf/IRANYekanWebExtraBlack.ttf")
       format("truetype");
 }
+
+
+body{
+  font-family: "iranyekan";
+}
