@@ -13,7 +13,7 @@ const messageBack = document.querySelector(".back");
 const formEdit = document.querySelector(".form__edit");
 const inputEdit = document.querySelector(".form__edit input");
 const formeEdit = document.querySelector(".form__edit form");
-// const formBack = document.querySelector(".form__back");
+const group = document.querySelector(".grouping");
 
 // Events
 todoForm.addEventListener("submit", addNewTodo);
@@ -48,10 +48,12 @@ function addNewTodo(e) {
     createdAt: new Date().toISOString(),
     title: todoInput.value,
     isCompleted: false,
+    grouping: group.value,
   };
 
   // todos.push(newTodo);
   saveTodo(newTodo);
+  
 
   filterTodos();
   messages();
@@ -59,8 +61,17 @@ function addNewTodo(e) {
 
 function createTodos(todos) {
   let result = "";
+
   todos.forEach((todo) => {
+    const groupIcons =
+      todo.grouping === "work"
+        ? `<i class="fa-solid fa-briefcase"></i> کار`
+        : todo.grouping === "lesson"
+        ? `<i class="fa-solid fa-book"></i> درس`
+        : `<i class="fa-solid fa-house"></i> عمومی`;
+
     result += `<li class="todo">
+    <span class="todo__group" >${groupIcons}</span> 
             <p class="todo__title ${todo.isCompleted && "completed"} "> ${
       todo.title
     }</p>

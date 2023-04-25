@@ -30,6 +30,8 @@ body{
   height: 100vh;
   
 }
+
+
 .title{
   margin-top: 2rem;
 }
@@ -40,6 +42,11 @@ body{
   align-items: center;
 
 }
+.todo-form{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 form{
   border: 1px solid  var(--primaryColor) ;
   border-radius: 10px;
@@ -48,7 +55,7 @@ form{
 }
 
 form input{
-   max-width: 20rem;
+   width: 15rem;
   height: 2rem;
   border: none;
   padding: 5px;
@@ -112,11 +119,21 @@ padding: 5px;
 .todo span{
   margin-right: 10px;
 }
-
-.todo__title,.todo__createdAt,.todo__button{
-  width: 33%;
+.todo__group i{
+  color: var(--primaryColor);
 }
 
+.todo__title,.todo__createdAt,.todo__button{
+  width: 30%;
+}
+.title__list span{
+  display: flex;
+  align-items: center;
+}
+.title__list p{
+  font-size: 10px;
+  margin-left: 20px;
+}
 .todo__createdAt{
   margin-left: 40px;
 }
@@ -248,7 +265,21 @@ margin-bottom: 10px;
 
 .form__edit form{
   margin-right: 15px;
+  
 }
+}
+
+.grouping{
+  border: none;
+  outline: none;
+  font-size: 10px;
+}
+
+.form-container div {font-size: 10px;}
+
+.todo__group{
+  font-size: 10px;
+  margin-left: 10px;
 }
 
 
