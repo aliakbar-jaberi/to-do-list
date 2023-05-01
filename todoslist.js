@@ -53,10 +53,10 @@ function addNewTodo(e) {
 
   // todos.push(newTodo);
   saveTodo(newTodo);
-  
 
   filterTodos();
   messages();
+  setTimeout(close, 800);
 }
 
 function createTodos(todos) {
