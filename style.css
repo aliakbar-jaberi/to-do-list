@@ -187,6 +187,7 @@ color: rgb(98, 216, 177);
 .Message .Message__container {
   position: absolute;
   top: 50%;
+  left: 50%;
   width: 250px;
   height: 120px;
   border-radius: 8px;
@@ -198,7 +199,7 @@ color: rgb(98, 216, 177);
   color: var(--mainWhite);
   z-index: 2;
   transition: all 0.5s ease-in-out;
-  transform: rotateY(90deg);
+  transform:translateX(-50%) rotateY(90deg);
 }
 
 .Message .Message__container span{
@@ -234,8 +235,9 @@ color: rgb(98, 216, 177);
   position: absolute;
   background-color: var(--mainWhite);
  top: 50%;
+ left: 50%;
  z-index: 2;
-transform: rotateY(90deg);
+transform:translateX(-50%) rotateY(90deg);
 transition: all 0.5s ease-in-out;
 }
 

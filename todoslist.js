@@ -146,7 +146,7 @@ function checkTodo(e) {
 }
 
 function messages() {
-  message.style.transform = "rotateY(0deg)";
+  message.style.transform = " translateX(-50%) rotateY(0deg)";
   messageBack.style.display = "block";
   messageBack.style.opacity = "1";
 }
@@ -156,7 +156,7 @@ function editTodo(e) {
   const todoId = Number(e.target.dataset.todoId);
   const todo = todos.find((t) => t.id === todoId);
   inputEdit.value = todo.title;
-  formEdit.style.transform = "rotateY(0deg)";
+  formEdit.style.transform = " translateX(-50%) rotateY(0deg)";
   messageBack.style.display = "block";
   messageBack.style.opacity = "1";
   formeEdit.addEventListener("submit", (e) => {
@@ -171,10 +171,10 @@ function editTodo(e) {
 console.log(inputEdit.value);
 
 function close() {
-  message.style.transform = "rotateY(90deg)";
+  message.style.transform = " translateX(-50%) rotateY(90deg)";
   messageBack.style.display = "none";
   messageBack.style.opacity = "0";
-  formEdit.style.transform = "rotateY(90deg)";
+  formEdit.style.transform = " translateX(-50%) rotateY(90deg)";
 }
 
 // localStorage
